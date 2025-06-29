@@ -30,3 +30,11 @@ services:
     - backend
     ports:
     - "80:80"
+  debug:
+    image: debug:v1
+    #image: lingadevops/debug:v1.0
+    container_name: debug
+    depends_on:
+    - frontend  # optional to add it.
+    ports:
+    - "81:81"
