@@ -8,7 +8,7 @@ volumes:
   #  external: true # if true, you need to create manually.
 services:
   mysql:
-    image: mysql:v1.1 # mysql:v1.1 is for non-root user, mysql:v1.2 as root user
+    image: mysql:v1.2 # mysql:v1.1 is for non-root user, mysql:v1.2 as root user
     #image: lingadevops/mysql:v1.1
     container_name: mysql 
     volumes:
