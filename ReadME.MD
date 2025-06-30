@@ -27,7 +27,7 @@ COPY scripts/*.sql /docker-entrypoint-initdb.d/
 ## Installing Expense Docker:
 
 ```
-for i in mysql backend frontend debug; do cd $i ; docker build -t $i:v1 . ; cd ..; done
+for i in mysql backend frontend debug; do cd $i ; docker build -t $i:v1.1 . ; cd ..; done
 ```
 
 ```
