@@ -31,6 +31,11 @@ for i in mysql backend frontend debug; do cd $i ; docker build -t $i:v1.1 . ; cd
 ```
 
 ```
+docker build -t mysql:v1.2 . 
+```
+
+
+```
 docker compose up -d
 ```
 
