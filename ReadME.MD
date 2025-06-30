@@ -1,3 +1,29 @@
+# 1. MySQL Dockerfile: In docker best practices, We run images as non-root user by adding USER expense at the end of the dockerfile. 
+FROM mysql:8.0
+# not a human, only for system
+RUN adduser -r expense
+ENV MYSQL_ROOT_PASSWORD=ExpenseApp@1 \
+    MYSQL_USER=expense \
+    MYSQL_PASSWORD=ExpenseApp@1 \
+    MYSQL_DATABASE=transactions
+RUN chown -R expense:expense /var/lib/mysql /var/run/mysqld
+COPY scripts/*.sql /docker-entrypoint-initdb.d/
+USER expense
+
+
+# 2. MySQL Dockerfile: Remaining all, We run MySQL dockerfile as root user by not including USER expense.
+FROM mysql:8.0
+# not a human, only for system
+RUN adduser -r expense
+ENV MYSQL_ROOT_PASSWORD=ExpenseApp@1 \
+    MYSQL_USER=expense \
+    MYSQL_PASSWORD=ExpenseApp@1 \
+    MYSQL_DATABASE=transactions
+RUN chown -R expense:expense /var/lib/mysql /var/run/mysqld
+COPY scripts/*.sql /docker-entrypoint-initdb.d/
+
+
+
 ## Installing Expense Docker:
 
 ```

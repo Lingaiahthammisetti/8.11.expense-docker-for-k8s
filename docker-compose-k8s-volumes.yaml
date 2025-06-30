@@ -8,31 +8,31 @@ volumes:
   #  external: true # if true, you need to create manually.
 services:
   mysql:
-    image: mysql:v1.0
-    #image: lingadevops/mysql:v1.0
+    image: mysql:v1.2
+    #image: lingadevops/mysql:v1.2
     container_name: mysql 
     volumes:
     - source: mysql
       target: /var/lib/mysql
       type: volume
   backend:
-    image: backend:v1.0
-    #image: lingadevops/backend:v1.0
+    image: backend:v1.2
+    #image: lingadevops/backend:v1.2
     container_name: backend
     command: sh -c "sleep 20 && node /opt/server/index.js"
     depends_on:
     - mysql
   frontend:
-    image: frontend:v1.0
-    #image: lingadevops/frontend:v1.0
+    image: frontend:v1.2
+    #image: lingadevops/frontend:v1.2
     container_name: frontend
     depends_on:
     - backend
     ports:
     - "80:80"
   debug:
-    image: debug:v1.0
-    #image: lingadevops/debug:v1.0
+    image: debug:v1.2
+    #image: lingadevops/debug:v1.2
     container_name: debug
     depends_on:
     - frontend  # optional to add it.
